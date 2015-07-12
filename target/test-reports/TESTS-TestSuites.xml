@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="fernando-Inspiron-5447" id="0" name="CalcCompetenciaUtilTests" package="calccompetencia" tests="1" time="0.289" timestamp="2015-07-12T02:21:39">
+      <properties />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testarCapturarCompetenica" time="0.275" />
+
+      <system-out><![CDATA[--Output from testarCapturarCompetenica--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testarCapturarCompetenica--
+]]></system-err>
+
+  </testsuite>
+</testsuites>
