@@ -14,12 +14,16 @@ class CalcCompetenciaUtil {
      * @return
      */
     static Date ultimoDiaDomes(Date data) {
-        if (data.month >= 9) {
-            //janeiro = 0
-            return new Date().parse("dd/MM/yyyy", "01/${data.month + 2}/${data.format("yyyy")}").minus(1)
-        } else {
-            return new Date().parse("dd/MM/yyyy", "01/0${data.month + 2}/${data.format("yyyy")}").minus(1)
+        if(data){
+            Calendar calendario = Calendar.getInstance()
+            calendario.setTime(data)
+            calendario.set(Calendar.DATE, calendario.getActualMaximum(Calendar.DATE))
+            Date lastDayOfMonth = calendario.getTime()
+            return lastDayOfMonth
         }
+
+        return null
+
     }
 
     /**
@@ -43,11 +47,13 @@ class CalcCompetenciaUtil {
      * @return
      */
     static Date capturarCompetencia(Date data) {
-        if (data.month >= 9) {
-            return new Date().parse("dd/MM/yyyy", "01/${data.month + 1}/${data.format("yyyy")}")
-        } else {
-            return new Date().parse("dd/MM/yyyy", "01/0${data.month + 1}/${data.format("yyyy")}")
+        if(data){
+            def competencia = data.getAt(Calendar.DAY_OF_MONTH)
+            competencia++
+            return  converterStringParaData("01/${competencia}/${data.format('yyyy')}")
         }
+
+        return null
 
     }
 
@@ -72,7 +78,6 @@ class CalcCompetenciaUtil {
     }
 
     static Date capturarCompentenciaComExcessao(String competencia) throws ParseException {
-
         SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
         sd.lenient = false
         return sd.parse("01/" + competencia)
