@@ -32,11 +32,15 @@ class CalcCompetenciaUtil {
      * @return
      */
     static Date proximoMes(Date data) {
-        data = capturarCompetencia(data.format("MM/yyyy"))
-        def calendario = Calendar.getInstance()
-        calendario.setTime(data)
-        calendario.add(Calendar.MONTH, 1)
-        return calendario.getTime()
+        if(data){
+            data = capturarCompetencia(data.format("MM/yyyy"))
+            def calendario = Calendar.getInstance()
+            calendario.setTime(data)
+            calendario.add(Calendar.MONTH, 1)
+            return calendario.getTime()
+        }
+        return null
+
 
 
     }
@@ -48,13 +52,11 @@ class CalcCompetenciaUtil {
      */
     static Date capturarCompetencia(Date data) {
         if(data){
-            def competencia = data.getAt(Calendar.DAY_OF_MONTH)
+            def competencia = data.getAt(Calendar.MONTH)
             competencia++
             return  converterStringParaData("01/${competencia}/${data.format('yyyy')}")
         }
-
         return null
-
     }
 
 /**
@@ -92,13 +94,16 @@ class CalcCompetenciaUtil {
      */
     static Date converterStringParaData(String data) {
 
-        try {
-            SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
-            sd.lenient = false
-            return sd.parse(data)
-        } catch (ParseException e) {
-            return null
+        if(data){
+            try {
+                SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
+                sd.lenient = false
+                return sd.parse(data)
+            } catch (ParseException e) {
+                return null
+            }
         }
+
 
         return null
 
@@ -169,5 +174,23 @@ class CalcCompetenciaUtil {
 
         return null
 
+    }
+
+    static Date primeiroDiaAno(Integer ano){
+        if(ano){
+            return converterStringParaData("01/01/${ano}")
+        }
+
+        return null
+
+    }
+
+    static Date ultimoDiaAno(Integer  ano){
+        if(ano){
+            def data = converterStringParaData("01/01/${ano}")//proximo ano
+            data = data.minus(1)
+            return data
+        }
+        return null
     }
 }
