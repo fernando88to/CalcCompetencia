@@ -31,12 +31,12 @@ Retorna o primeiro dia do ano no formato Date, muito útil para fazer between.
 
 Último Dia do Ano
 ----------------
-      def primeiroDia = calccompetencia.CalcCompetenciaUtil.ultimoDiaAno(2015)
+      def ultimoDia = calccompetencia.CalcCompetenciaUtil.ultimoDiaAno(2015)
 Retorna o último dia do ano no formato Date, muito útil para fazer between.
 
 Lista de ano
 ----------------
-      def primeiroDia = calccompetencia.CalcCompetenciaUtil.anoInicial(2012)
+      def anoLista = calccompetencia.CalcCompetenciaUtil.anoInicial(2012)
 Retorna um lista com todos ao anos até a data presente começando pelo ano inicial passado no parâmetro.
 
 
