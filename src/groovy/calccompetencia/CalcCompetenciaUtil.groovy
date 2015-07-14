@@ -146,16 +146,7 @@ class CalcCompetenciaUtil {
 
     }
 
-    /* public Date competenciaDoMesAnterior(Date data){
-     if(data.month>=9){
-         //o month começa com zero dessa forma month é a mesma coisa que o mes -1
-         return new Date().parse("dd/MM/yyyy", "01/${data.month}/${data.format("yyyy")}")
-     }else{
-         return new Date().parse("dd/MM/yyyy",  "01/0${data.month}/${data.format("yyyy")}")
-     }
 
-
- }  */
 
     /**
      * Captura a competência da data passada e soma a quantidades de meses a comptencia, por
@@ -165,10 +156,13 @@ class CalcCompetenciaUtil {
      * @return
      */
     static Date somarCompetencia(Date data, Integer quantidadeMeses) {
-        if(data && quantidadeMeses>0){
+        if(data && quantidadeMeses!=null){
             def calendario = Calendar.getInstance()
             calendario.setTime(data)
-            calendario.add(Calendar.MONTH, quantidadeMeses)
+            if(quantidadeMeses>=0){
+                calendario.add(Calendar.MONTH, quantidadeMeses)
+            }
+
             return calendario.getTime()
         }
 
@@ -187,7 +181,7 @@ class CalcCompetenciaUtil {
 
     static Date ultimoDiaAno(Integer  ano){
         if(ano){
-            def data = converterStringParaData("01/01/${ano}")//proximo ano
+            def data = converterStringParaData("01/01/${ano+1}")//proximo ano
             data = data.minus(1)
             return data
         }

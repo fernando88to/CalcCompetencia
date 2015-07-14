@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites />
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="fernando-Inspiron-5447" id="0" name="CalcCompetenciaUtilTests" package="calccompetencia" tests="8" time="0.383" timestamp="2015-07-13T23:57:52">
+      <properties />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testarconverterStringParaData" time="0.275" />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testarultimoDiaDomes" time="0.027" />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testarproximoMes" time="0.0090" />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testarCapturarCompetenica" time="0.0080" />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testaranos" time="0.0090" />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testarsomarCompetencia" time="0.0060" />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testarprimeiroDiaAno" time="0.0080" />
+
+      <testcase classname="calccompetencia.CalcCompetenciaUtilTests" name="testarultimoDiaAno" time="0.0080" />
+
+      <system-out><![CDATA[--Output from testarconverterStringParaData--
+--Output from testarultimoDiaDomes--
+--Output from testarproximoMes--
+--Output from testarCapturarCompetenica--
+--Output from testaranos--
+--Output from testarsomarCompetencia--
+--Output from testarprimeiroDiaAno--
+--Output from testarultimoDiaAno--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testarconverterStringParaData--
+--Output from testarultimoDiaDomes--
+--Output from testarproximoMes--
+--Output from testarCapturarCompetenica--
+--Output from testaranos--
+--Output from testarsomarCompetencia--
+--Output from testarprimeiroDiaAno--
+--Output from testarultimoDiaAno--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

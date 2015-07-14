@@ -73,5 +73,70 @@ class CalcCompetenciaUtilTests {
     void testarCapturarCompetenica() {
         def retorno  = CalcCompetenciaUtil.capturarCompetencia(new Date())
         assert  retorno != null
+        def data = CalcCompetenciaUtil.converterStringParaData("25/07/2015")
+        retorno  = CalcCompetenciaUtil.capturarCompetencia(data)
+        assert  retorno != null
+        assert retorno.format('MM')=='07'
+        assert  retorno.format('dd')=='01'
+        assert  retorno.format('yyyy')=='2015'
+    }
+
+    @Test
+    void testaranos(){
+        def retorno = CalcCompetenciaUtil.anos(null)
+        assert  retorno == []
+        retorno = CalcCompetenciaUtil.anos(2010)
+        def anoAtual = new Integer(new Date().format('yyyy'))
+        def quantidadeRegistrosQueDeveTer = anoAtual-2010
+        quantidadeRegistrosQueDeveTer++
+        assert quantidadeRegistrosQueDeveTer==retorno.size()
+        for(ano in retorno){
+            assert ano  >=2010
+            assert ano <=anoAtual
+        }
+
+    }
+
+    @Test
+    void testarsomarCompetencia(){
+        def competencia = CalcCompetenciaUtil.converterStringParaData('01/05/2015')
+        def retorno = CalcCompetenciaUtil.somarCompetencia(competencia,2)
+        assert retorno.format('MM')=='07'
+        assert  retorno.format('yyyy')=='2015'
+        assert  retorno.format('dd')=='01'
+
+
+        retorno = CalcCompetenciaUtil.somarCompetencia(competencia,null)
+        assert retorno ==null
+
+    }
+
+    @Test
+    void testarprimeiroDiaAno(){
+        def retorno = CalcCompetenciaUtil.primeiroDiaAno(2014)
+        assert retorno.format('MM')=='01'
+        assert  retorno.format('yyyy')=='2014'
+        assert  retorno.format('dd')=='01'
+
+         retorno = CalcCompetenciaUtil.primeiroDiaAno(null)
+        assert retorno ==null
+
+
+         retorno = CalcCompetenciaUtil.primeiroDiaAno(2017)
+        assert retorno.format('MM')=='01'
+        assert  retorno.format('yyyy')=='2017'
+        assert  retorno.format('dd')=='01'
+    }
+
+    @Test
+    void testarultimoDiaAno(){
+        def retorno = CalcCompetenciaUtil.ultimoDiaAno(2014)
+        assert retorno.format('MM')=='12'
+        assert  retorno.format('yyyy')=='2014'
+        assert  retorno.format('dd')=='31'
+
+        retorno = CalcCompetenciaUtil.ultimoDiaAno(null)
+        assert retorno ==null
+
     }
 }
