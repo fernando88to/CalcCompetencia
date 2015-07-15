@@ -12,14 +12,14 @@ class CalcCompetenciaGrailsPlugin {
 
     // TODO Fill in these fields
     def title = "Calc Competencia Plugin" // Headline display name of the plugin
-    def author = "Your name"
-    def authorEmail = ""
+    def author = "Fernando Henrique Lima Soares"
+    def authorEmail = "fernando88to@gmail.com"
     def description = '''\
-Brief summary/description of the plugin.
+Plugin para trabalhar com datas e competências
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/calc-competencia"
+    def documentation = "https://github.com/fernando88to/CalcCompetencia"
 
     // Extra (optional) plugin metadata
 
