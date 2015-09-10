@@ -1,0 +1,11 @@
+.DS_Store
+*.iml
+*.iws
+*.log
+/.settings
+/grails-calc-competencia-*.zip
+/grails-calc-competencia-*.zip.sha1
+/plugin.xml
+/target
+/target-eclipse
+/web-app
